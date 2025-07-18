@@ -1,0 +1,68 @@
+:root {
+    --color-principal: #FF8C42; /* Naranja cálido */
+    --color-complementario-1: #FF7F50; /* Rojo coral */
+    --color-complementario-2: #FFFFFF; /* Blanco */
+    --color-complementario-3: #E0E0E0; /* Gris claro */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--color-principal);
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.banner {
+    background-color: var(--color-complementario-2);
+    margin-top: 56px;
+}
+
+.slogan {
+    background-color: var(--color-principal);
+}
+
+.service-box {
+    transition: transform 0.3s;
+    background-color: var(--color-complementario-3);
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+}
+
+.social-media a {
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: var(--color-complementario-1) !important;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia - Floristería</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #FF8C42;
+            --color-complementario-1: #FF7F50;
+            --color-complementario-2: #FFFFFF;
+            --color-complementario-3: #E0E0E0;
+            --color-accent: #FF6B35;
+            --color-dark: #2C3E50;
+            --color-light: #F8F9FA;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .highlight {
+            font-family: 'Kufam', cursive;
+        }
+        /* Header y Navigation */
+        .navbar {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1030;
+            animation: slideInFromTop 0.8s ease-out;
+        }
+        
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+            padding: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.1) rotate(5deg);
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        .navbar-nav .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--color-dark) !important;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 140, 66, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--color-principal) !important;
+            transform: translateY(-2px);
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-principal), var(--color-accent));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown-menu {
+            z-index: 1031;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            animation: zoomIn 0.3s ease-out;
+        }
+        
+        .dropdown-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            color: white !important;
+            transform: translateX(5px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.9), rgba(255, 107, 53, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="flowers" patternUnits="userSpaceOnUse" width="200" height="200"><circle cx="50" cy="50" r="30" fill="%23FF8C42" opacity="0.1"/><circle cx="150" cy="150" r="25" fill="%23FF7F50" opacity="0.1"/><circle cx="100" cy="100" r="20" fill="%23FF6B35" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23flowers)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 140, 66, 0.3), rgba(255, 107, 53, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .history-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--color-light), #ffffff);
+        }
+        .history-section h2 {
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--color-principal);
+            position: relative;
+        }
+        
+        .history-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-principal), var(--color-accent));
+            border-radius: 2px;
+        }
+        
+        .history-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--color-principal), var(--color-accent));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .history-item {
+            position: relative;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+        
+        .history-item:nth-child(even) {
+            animation: slideInFromRight 0.8s ease-out forwards;
+        }
+        
+        .history-item:nth-child(1) { animation-delay: 0.2s; }
+        .history-item:nth-child(2) { animation-delay: 0.4s; }
+        .history-item:nth-child(3) { animation-delay: 0.6s; }
+        .history-item:nth-child(4) { animation-delay: 0.8s; }
+        .history-item:nth-child(5) { animation-delay: 1s; }
+        
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .history-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 140, 66, 0.1);
+        }
+        
+        .history-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .history-item:nth-child(odd) .history-content {
+            margin-right: 50%;
+            margin-left: 0;
+        }
+        
+        .history-item:nth-child(even) .history-content {
+            margin-left: 50%;
+            margin-right: 0;
+        }
+        
+        .history-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            transform: translateX(-50%);
+            z-index: 2;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .history-year {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+        
+        .history-item h3 {
+            margin-bottom: 15px;
+            color: var(--color-principal);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .history-item p {
+            margin-bottom: 15px;
+            color: var(--color-dark);
+            line-height: 1.7;
+        }
+        
+        .history-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .history-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .history-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2rem;
+            color: var(--color-principal);
+            opacity: 0.3;
+        }
+        
+        /* Valores Section */
+        .valores-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            color: white;
+        }
+        
+        .valores-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        
+        .valor-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .valor-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .valor-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .valor-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            
+            .history-timeline::before {
+                left: 20px;
+            }
+            
+            .history-item:nth-child(odd) .history-content,
+            .history-item:nth-child(even) .history-content {
+                margin-left: 50px;
+                margin-right: 0;
+            }
+            
+            .history-item::before {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .social-media {
+            position: relative;
+            z-index: 2;
+        }
+        .social-media a {
+            font-size: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none !important;
+            display: inline-block;
+            margin: 0 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .social-media a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .social-media a:hover::before {
+            transform: scale(1);
+        }
+        .social-media a:hover {
+            color: var(--color-complementario-2) !important;
+            transform: translateY(-5px) rotate(5deg);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .social-media a i {
+            position: relative;
+            z-index: 3;
+        }
+        .social-media a.facebook:hover {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+        }
+        .social-media a.instagram:hover {
+            background: linear-gradient(135deg, #e1306c, #fd5949, #ffdc80);
+        }
+        .social-media a.twitter:hover {
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+        }
+        footer p {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover::before {
+            transform: scale(1);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .whatsapp-float i {
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1);
+                transform: scale(1.05);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-light shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="nosotros.html" id="nosotrosDropdown" role="button" data-bs-toggle="dropdown">
+                                Nosotros
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="nosotrosDropdown">
+                                <li><a class="dropdown-item" href="historia.html">Historia</a></li>
+                                <li><a class="dropdown-item" href="mision-vision.html">Misión y Visión</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="servicios.html" id="serviciosDropdown" role="button" data-bs-toggle="dropdown">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                                <li><a class="dropdown-item" href="florales-eventos.html">Florales para eventos</a></li>
+                                <li><a class="dropdown-item" href="ramos-personalizados.html">Ramos personalizados</a></li>
+                                <li><a class="dropdown-item" href="regalos-simples.html">Regalos simples</a></li>
+                                <li><a class="dropdown-item" href="fechas-especiales.html">Fechas especiales</a></li>
+                                <li><a class="dropdown-item" href="plantas-interior.html">Plantas de interior</a></li>
+                                <li><a class="dropdown-item" href="arreglos-corporativos.html">Arreglos corporativos</a></li>
+                                <li><a class="dropdown-item" href="delivery.html">Delivery a domicilio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="galeria.html">Galería</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ubicacion.html">Ubicación</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="container">
+                <h1>Nuestra Historia</h1>
+                <p class="lead">Más de 30 años creando momentos especiales con flores</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="history-section">
+            <div class="container">
+                <h2>Un Viaje a Través del Tiempo</h2>
+                <div class="history-timeline">
+                    <div class="history-item">
+                        <div class="history-content">
+                            <div class="history-year">1990</div>
+                            <i class="fas fa-seedling history-icon"></i>
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fundación de la floristería" class="history-image">
+                            <h3>Los Primeros Pasos</h3>
+                            <p>En 1990, nuestra floristería fue fundada con el sueño de llevar belleza y alegría a través de las flores. Comenzamos como un pequeño negocio familiar con apenas 3 empleados, pero con una gran pasión por el arte floral. Desde el primer día, nos comprometimos a ofrecer las flores más frescas y los arreglos más creativos de la ciudad.</p>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-content">
+                            <div class="history-year">2000</div>
+                            <i class="fas fa-store history-icon"></i>
+                            <img src="https://plus.unsplash.com/premium_photo-1661526024468-a740d46230d5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Expansión del negocio" class="history-image">
+                            <h3>Crecimiento y Expansión</h3>
+                            <p>En el año 2000, gracias al apoyo incondicional de nuestros clientes, logramos expandirnos y abrir nuestra segunda sucursal en el centro de la ciudad. Esto nos permitió llegar a más personas y ofrecer nuestros servicios a una mayor audiencia. También aumentamos nuestro equipo a 12 floristas especializados.</p>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-content">
+                            <div class="history-year">2010</div>
+                            <i class="fas fa-truck history-icon"></i>
+                            <img src="https://images.unsplash.com/photo-1554583047-3d29c61fccb4?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Servicio de delivery" class="history-image">
+                            <h3>Era Digital y Delivery</h3>
+                            <p>En 2010, introdujimos nuestro revolucionario servicio de delivery a domicilio, cambiando completamente la forma en que nuestros clientes reciben sus flores. Además, lanzamos nuestra página web y comenzamos a ofrecer talleres y cursos de arreglos florales para compartir nuestro conocimiento con la comunidad.</p>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-content">
+                            <div class="history-year">2020</div>
+                            <i class="fas fa-heart history-icon"></i>
+                            <img src="https://img.freepik.com/fotos-premium/interior-floristeria-moderna-elegante-estilo-loft-premium-plantas-macetas_88135-34876.jpg" alt="Floristería moderna" class="history-image">
+                            <h3>Presente y Futuro</h3>
+                            <p>Hoy en día, contamos con 4 sucursales y un equipo de más de 25 profesionales apasionados por las flores. Seguimos innovando con nuevas tecnologías, ofrecemos servicios personalizados y mantenemos nuestro compromiso original: hacer sonreír a las personas a través de la belleza natural de las flores. Miramos hacia el futuro con optimismo y nuevos proyectos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Valores Section -->
+        <section class="valores-section">
+            <div class="container">
+                <h2>Nuestros Valores</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="valor-card">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Calidad</h4>
+                            <p>Seleccionamos cuidadosamente las flores más frescas y de mejor calidad para cada arreglo.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="valor-card">
+                            <i class="fas fa-heart"></i>
+                            <h4>Pasión</h4>
+                            <p>Cada arreglo es creado con amor y dedicación, poniendo el corazón en cada detalle.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="valor-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Compromiso</h4>
+                            <p>Nos comprometemos a superar las expectativas de nuestros clientes en cada ocasión.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-white text-center py-4">
+        <div class="social-media mb-3">
+            <a href="#" class="text-white facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2023 Floristería. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/tunumerodetelefono" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

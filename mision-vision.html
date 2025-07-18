@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión y Visión - Floristería</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Playfair+Display:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #FF8C42;
+            --color-complementario-1: #FF7F50;
+            --color-complementario-2: #FFFFFF;
+            --color-complementario-3: #E0E0E0;
+            --color-accent: #FF6B35;
+            --color-dark: #2C3E50;
+            --color-light: #F8F9FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .highlight {
+            font-family: 'Kufam', cursive;
+        }
+        
+        /* Animaciones de entrada */
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1);
+                transform: scale(1.05);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Header y Navigation */
+        .navbar {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1030;
+            animation: slideInFromTop 0.8s ease-out;
+        }
+        
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+            padding: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.1) rotate(5deg);
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        .navbar-nav .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--color-dark) !important;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 140, 66, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--color-principal) !important;
+            transform: translateY(-2px);
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-principal), var(--color-accent));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown-menu {
+            z-index: 1031;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            animation: zoomIn 0.3s ease-out;
+        }
+        
+        .dropdown-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            color: white !important;
+            transform: translateX(5px);
+        }
+        
+        /* Sección Mission Vision */
+        .mission-vision-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--color-light), #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-vision-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23FF8C42" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%23FF7F50" opacity="0.05"/><circle cx="50" cy="10" r="1" fill="%23FF6B35" opacity="0.05"/><circle cx="90" cy="40" r="1" fill="%23FF8C42" opacity="0.05"/><circle cx="10" cy="80" r="1" fill="%23FF7F50" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .mission-vision-section h2 {
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-principal);
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .mission-vision-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-principal), var(--color-accent));
+            transform: translateX(-50%);
+            border-radius: 2px;
+            animation: slideInFromLeft 1.2s ease-out;
+        }
+        
+        .mission-vision-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission, .vision {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .mission {
+            animation: slideInFromLeft 1s ease-out 0.3s both;
+        }
+        
+        .vision {
+            animation: slideInFromRight 1s ease-out 0.3s both;
+        }
+        
+        .mission::before, .vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.05), rgba(255, 107, 53, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .mission:hover::before, .vision:hover::before {
+            opacity: 1;
+        }
+        
+        .mission::after, .vision::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.6s ease;
+            opacity: 0;
+        }
+        
+        .mission:hover::after, .vision:hover::after {
+            transform: rotate(45deg) translate(50%, 50%);
+            opacity: 1;
+        }
+        
+        .mission:hover, .vision:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            border-color: var(--color-principal);
+        }
+        
+        .mission h3, .vision h3 {
+            color: var(--color-principal);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .mission h3::before, .vision h3::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 6px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--color-principal), var(--color-accent));
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .mission:hover h3::before, .vision:hover h3::before {
+            opacity: 1;
+        }
+        
+        .mission h3 i, .vision h3 i {
+            margin-right: 15px;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .mission:hover h3 i, .vision:hover h3 i {
+            transform: rotate(360deg);
+        }
+        
+        .mission p, .vision p {
+            color: var(--color-dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .mission:hover p, .vision:hover p {
+            color: #1a252f;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--color-principal), var(--color-accent));
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footerPattern" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23footerPattern)"/></svg>');
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        .social-media {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+        
+        .social-media a {
+            font-size: 1.8rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none !important;
+            display: inline-block;
+            margin: 0 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-media a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .social-media a:hover::before {
+            transform: scale(1);
+        }
+        
+        .social-media a:hover {
+            color: var(--color-complementario-2) !important;
+            transform: translateY(-10px) rotate(15deg) scale(1.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .social-media a i {
+            position: relative;
+            z-index: 3;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-media a:hover i {
+            transform: rotate(-15deg);
+        }
+        
+        .social-media a.facebook:hover {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+        }
+        
+        .social-media a.instagram:hover {
+            background: linear-gradient(135deg, #e1306c, #fd5949, #ffdc80);
+        }
+        
+        .social-media a.twitter:hover {
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+        }
+        
+        footer p {
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+        
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-float:hover::before {
+            transform: scale(1);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.2) rotate(15deg);
+            box-shadow: 0 15px 45px rgba(37, 211, 102, 0.7);
+            border-color: rgba(255, 255, 255, 0.4);
+            animation: none;
+        }
+        
+        .whatsapp-float i {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mission-vision-section {
+                padding: 60px 0;
+            }
+            
+            .mission-vision-section h2 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+            
+            .mission, .vision {
+                min-width: 280px;
+                padding: 30px;
+            }
+            
+            .mission h3, .vision h3 {
+                font-size: 2rem;
+            }
+            
+            .mission-vision-content {
+                gap: 30px;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Scroll reveal effect */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-light shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="nosotros.html" id="nosotrosDropdown" role="button" data-bs-toggle="dropdown">
+                                Nosotros
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="nosotrosDropdown">
+                                <li><a class="dropdown-item" href="historia.html">Historia</a></li>
+                                <li><a class="dropdown-item" href="mision-vision.html">Misión y Visión</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="servicios.html" id="serviciosDropdown" role="button" data-bs-toggle="dropdown">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                                <li><a class="dropdown-item" href="florales-eventos.html">Florales para eventos</a></li>
+                                <li><a class="dropdown-item" href="ramos-personalizados.html">Ramos personalizados</a></li>
+                                <li><a class="dropdown-item" href="regalos-simples.html">Regalos simples</a></li>
+                                <li><a class="dropdown-item" href="fechas-especiales.html">Fechas especiales</a></li>
+                                <li><a class="dropdown-item" href="plantas-interior.html">Plantas de interior</a></li>
+                                <li><a class="dropdown-item" href="arreglos-corporativos.html">Arreglos corporativos</a></li>
+                                <li><a class="dropdown-item" href="delivery.html">Delivery a domicilio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="galeria.html">Galería</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ubicacion.html">Ubicación</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="mission-vision-section">
+            <div class="container">
+                <h2 class="scroll-reveal">Misión y Visión</h2>
+                <div class="mission-vision-content">
+                    <div class="mission scroll-reveal">
+                        <h3><i class="fas fa-bullseye"></i>Nuestra Misión</h3>
+                        <p>Nuestra misión es proporcionar a nuestros clientes las flores más frescas y hermosas, junto con un servicio excepcional. Nos esforzamos por crear arreglos florales que no solo cumplan, sino que superen las expectativas de nuestros clientes, haciendo de cada ocasión un momento especial e inolvidable.</p>
+                    </div>
+                    <div class="vision scroll-reveal">
+                        <h3><i class="fas fa-eye"></i>Nuestra Visión</h3>
+                        <p>Nuestra visión es ser reconocidos como la floristería líder en innovación y calidad, no solo a nivel local, sino también a nivel nacional. Aspiramos a expandir nuestra presencia y seguir llevando alegría y belleza a través de nuestras flores, manteniendo siempre nuestros valores de sostenibilidad y respeto por el medio ambiente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-white text-center py-4">
+        <div class="social-media">
+            <a href="https://www.facebook.com/p/Florer%C3%ADa-Lilium-Huanta-100063989167240/?locale=es_LA" class="text-white facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/florerialiliumhuanta/?hl=es-la" class="text-white instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 Floristería. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add mouse follow effect to mission and vision cards
+        const cards = document.querySelectorAll('.mission, .vision');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+            });
+        });
+
+        // Add floating particles effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(255, 140, 66, 0.3)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = `float ${Math.random() * 3 + 2}s ease-in-out infinite`;
+            
+            document.querySelector('.mission-vision-section').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+    </script>
+</body>
+</html>
